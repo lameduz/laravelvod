@@ -2,13 +2,21 @@
  * Created by vodo-tech on 01/06/2015.
  */
 
-/*$('form').submit(function(e)
+/*
+
+    */
+$('body').on('click','#edit-btn',function(e)
 {
-   event.preventDefault();
+    $('input').attr('readonly',false);
+    $(this).html('Confirmer les changement').addClass('confirm-edit');
+
+}).on('click','.confirm-edit',function(e)
+{
+    e.preventDefault();
     $.ajax({
-        url: '',
+        url: 'http://vodo.intranet.dev/admin/edit/organisation',
         type:'post',
-        data: $('form').serialize(),
+        data: ,
         dataType: 'json',
         success: function(data)
         {
@@ -19,19 +27,11 @@
 
         }
     });
-});
 
-    */
-$('body').on('click','#edit-btn',function(e)
-{
-    $('input').attr('readonly',false);
-    $(this).html('Confirmer les changement').addClass('confirm-edit');
-
-}).on('click','.confirm-edit',function()
-{
     $(this).html('Modifier les informations');
     $(this).removeClass('confirm-edit');
     $('input').attr('readonly',true);
+
 });
 
 
@@ -39,3 +39,7 @@ $('body').on('click','#edit-btn',function(e)
 
 
 
+$('.confirm-edit').click(function(e)
+{
+
+});
